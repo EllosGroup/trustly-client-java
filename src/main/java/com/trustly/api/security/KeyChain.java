@@ -93,10 +93,8 @@ class KeyChain {
      */
     private void loadTrustlyPublicKey(final boolean testEnvironment) {
         try {
-            //final File file = testEnvironment ? new File(TEST_TRUSTLY_PUBLIC_KEY_PATH) : new File(LIVE_TRUSTLY_PUBLIC_KEY_PATH);
             final String file = testEnvironment ? TEST_TRUSTLY_PUBLIC_KEY_PATH : LIVE_TRUSTLY_PUBLIC_KEY_PATH;
 
-            //final PEMParser pemParser = new PEMParser(new FileReader(file));
             final PEMParser pemParser = new PEMParser(new InputStreamReader(this.getClass().getResourceAsStream(file)));
             final PemObject object = pemParser.readPemObject();
             pemParser.close();
